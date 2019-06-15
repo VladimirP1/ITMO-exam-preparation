@@ -1,0 +1,71 @@
+doctype html
+include util/blocks.pug
+html
+    head
+        include util/mathjax.pug
+        link(rel="stylesheet", href="global.css")
+        title Main page
+    body
+        p(class='question') Поверхность. Простая и почти простая поверхность. Криволинейные координаты на поверхности. Вектор нормали.
+        +question-body()
+            include questions/01.pug 
+        p(class='question') Первая квадратичная форма поверхности. Площадь поверхности. Свойства и вычисление пощади.
+        +question-body()
+            include questions/02.pug 
+        p(class='question') Поверхностные интегралы первого и второго рода, их свойства.
+        +question-body()
+            include questions/03.pug 
+        p(class='question') Скалярные и векторные поля. Дифференциальные характеристики скалярного поля. Вектор ∇. Дифференциальные характеристики векторного поля. Формулы векторного анализа.
+        +question-body()
+            include questions/04.pug 
+        p(class='question') Интегральные характеристики векторного поля. 
+        +question-body()
+            include questions/05.pug 
+        p(class='question') Теорема Остроградского-Гаусса. Физический смысл дивергенции.
+        +question-body()
+            include questions/06.pug 
+        p(class='question') Формула Стокса.
+        +question-body()
+            include questions/07.pug 
+        p(class='question') Потенциальные и соленоидальные векторные поля.
+        +question-body()
+            include questions/08.pug 
+        p(class='question') Равномерная сходимость семейства функций. Необходимые и достаточные условия  равномерной сходимости.
+        +question-body()
+            include questions/09.pug 
+        p(class='question') Непрерывность предела равномерно сходящихся функций.
+        +question-body()
+            include questions/10.pug 
+        p(class='question') Предельный переход под знаком собственного интеграла. Непрерывность собственного интеграла, зависящего от параметра.
+        +question-body()
+            include questions/11.pug 
+        p(class='question') Теоремы о дифференцировании и интегрировании собственного интеграла, зависящего от параметра.
+        +question-body()
+            include questions/12.pug 
+        p(class='question') Равномерная сходимость интеграла, зависящего от параметра. Критерий Коши равномерной сходимости.
+        +question-body()
+            include questions/13.pug 
+        p(class='question') Достаточные признаки Вейерштрасса и Абеля-Дирихле равномерной сходимости интеграла.
+        +question-body()
+            include questions/14.pug 
+        p(class='question') Свойства равномерно сходящихся интегралов: предельный переход, непрерывность, интегрирование и дифференцирование под знаком интеграла.
+        +question-body()
+            include questions/15.pug 
+        p(class='question') Теорема о перестановке пределов в повторном интеграле, когда оба интеграла несобственные.
+        +question-body()
+            include questions/16.pug 
+        p(class='question') Вычисление некоторых несобственных интегралов: интегралы Фруллани, интеграл Дирихле, интеграл Эйлера-Пуассона, интегралы Лапласа, интегралы Френеля.
+        +question-body()
+            include questions/17.pug 
+        p(class='question') Интегралы Эйлера.
+        +question-body()
+            include questions/18.pug 
+        p(class='question') Интеграл Фурье. Теорема о равенстве интеграла Фурье сумме соответствующего ряда Фурье. Следствия.
+        +question-body()
+            include questions/19.pug 
+        p(class='question') Преобразование Фурье. 
+        +question-body()
+            include questions/20.pug 
+
+
+

@@ -1,0 +1,47 @@
+.question {
+    font-family: times, serif;
+    font-style: italic;
+    font-size: 1.2em;
+}
+.question-body {
+    font-family: serif;
+    font-style: normal;
+    font-size: 1em;
+    overflow: auto;
+    display: flex;
+}
+.theorem {
+    font-style: italic;
+}
+.green-rect{
+    height:auto;
+    float:left;
+    width:0.15em;
+    margin-right:0.3em;
+    background-color:green;
+}
+
+p,li{
+    margin: 0px;
+    padding: 0.1em;
+}
+
+ul {
+    margin-bottom: 0px;
+    padding-bottom: 0.1em;
+    margin-top: 0px;
+    padding-top: 0.1em;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-style: dotted;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+td {
+    vertical-align: top;
+  }

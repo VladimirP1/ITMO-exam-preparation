@@ -1,0 +1,91 @@
+doctype html
+<meta charset="UTF-8"> 
+include util/blocks.pug
+<html>
+head
+    include util/mathjax.pug
+    link(rel="stylesheet", href="global.css")
+    title Main page
+    style.
+        .blk {
+            border-color: black;
+            border-top: 0.5px;
+            border-bottom: 0;
+            border-left: 0;
+            border-right: 0;
+            border-style: dotted;
+        }
+body
+    p \(\newcommand{\unif}{\begin{smallmatrix}\rightarrow \\ \rightarrow  \end{smallmatrix}}\)
+    table
+        tr
+            td
+                p `int_0^{+oo} sin(alpha x) e^(-beta x) dx = alpha/(alpha^2+beta^2)`
+                p `int_0^{+oo} cos(alpha x) e^(-beta x) dx = beta/(alpha^2+beta^2)`
+                p `int_0^{+oo} sin(alpha x)/x dx = pi/2 sign(alpha)`
+                p `int_0^{+oo} cos(alpha x)/(1+x^2) dx = pi/2 e^(-|alpha|)`
+                p `int_0^{+oo} x sin(alpha x)/(1+x^2) dx = pi/2 e^(-|alpha|) sign(alpha)`
+                p `int_0^{+oo} e^(-x^2) dx = sqrt(pi)/2`
+                p `int_0^{+oo} sin(x^2) dx = int_0^{+oo} cos(x^2) dx = sqrt(pi)/(2*sqrt(2))`
+                p.
+                    \(\int_0^{+\infty} \dfrac{f(ax)-f(bx))}x dx = \\
+                    \begin{cases}
+                        f(0)\log{\frac ba} - f(\infty)\log{\frac ba}\quad ,\text{ если } \exists lim_{x \rightarrow \infty f(x)} \\
+                        f(0)\log{\frac ba}\quad ,\text{ если } \forall A. \exists \int_A^{+\infty} \frac{f(x)}x dx \\
+                        f(\infty)\log{\frac ba}\quad ,\text{ если } \forall A. \exists \int_0^A \frac{f(x)}x dx 
+                    \end{cases}
+                    \)
+                .blk
+                p `Gamma(x) = int_0^{+oo} t^(x-1) e^(-t) dt`
+                //p `Gamma'(x) = int_0^{+oo} t^(x-1) e^(-t) log(t) dt`
+                p `beta(x,y) = int_0^1 t^(x-1) (1-t)^(y-1)dt`
+                p `beta(x,y) = int_0^(+oo) u^(x-1) / (1+u)^(x+y) du`
+                p `beta(x,y) = int_0^1 (u^(x-1) + u(y-1))/ (1+u)^(x+y)dt`
+                p `beta(x,y) = (Gamma(x)Gamma(y))/(Gamma(x+y))`
+                .blk
+                p `Phi(y) = \int_(-oo)^(+oo) f(x) e^(-iyx) dx`
+                .blk
+                p \(\sin(\alpha\pm\beta) = \sin(\alpha)\cos(\beta) \pm \cos(\alpha)\sin(\beta)\)
+                p \(\cos(\alpha\pm\beta) = \cos(\alpha)\cos(\beta) \mp \sin(\alpha)\sin(\beta)\)
+            td  
+                p \(\sin(a) \sin(b)=\frac 12 \left(\cos(a-b)-\cos(a+b)\right)\)
+                p \(\sin(a) \cos(b)=\frac 12 \left(\sin(a+b)+\sin(a-b)\right)\)
+                p \(\cos(a) \cos(b)=\frac 12 \left(\cos(a+b)+\cos(a-b)\right)\)
+                p \(\sin(a)\pm\sin(b)=2\sin \frac{a\pm b}2 \cos \frac{a\mp b}2\)
+                p \(\cos(a)+\cos(b)=2\cos \frac{a + b}2 \cos \frac{a - b}2\)
+                p \(\cos(a)-\cos(b)=-2\sin \frac{a + b}2 \sin \frac{a - b}2\)
+                .blk
+                    +theorem()
+                        p Признак Дирихле (равн сход)
+                    ul
+                        li `g(x,y)` монотонна по x
+                        li \(g(x,y) \unif 0\)
+                        li \(\left|\int_a^c f(x,y)dx\right| \leqslant M\)
+                .blk
+                    +theorem()
+                        p Признак Абеля (равн сход)
+                    ul
+                        li `g(x,y)` монотонна по x
+                        li \(\left|(g(x,y)\right| &lt; C\)
+                        li \(\int_a^b f(x,y)dx\) сход. равн.
+                .blk
+                    p \(\lim_{y\rightarrow y_0} \int_a^b f(x,y)dx = \int_a^b \phi(x)dx\), если:
+                    ul
+                        li \( \forall c. \exists \int_a^c f(x,y)dx \)
+                        li \( f(x,y) \unif_{y\rightarrow y_0} \phi(x) \)
+                        li \( \exists \int_a^b \phi(x) dx \)
+                        li \( \int_a^b f(x,y) dx \text{ сход. равн.} \)
+                .blk
+                    p \(\frac{dI}{dy}=\int_a^b f'_y dx\), если:
+                    ul
+                        li \(f(x,y)\) непр на \([a,b]\times [c,d]\)
+                        li \(f(x,y)\) дифф по y 
+                        li \(f'_y\) непр на \([a,b]\times [c,d]\)
+                        li \(\int_a^b f(x,y) dx\) сходится
+                        li \(\int_a^b f'_y(x,y) dx\) сход. равн.
+                .blk
+                p `int dx/(a^2+x^2) = 1/a arctan(x/a)`
+                p `int dx/(a^2-x^2) = 1/(2a) log |(a+x)/(a-x)|`
+                p `int dx/sqrt(a^2-x^2) = arcsin (x/a)`
+                p `int dx/sqrt(x^2+-a^2) = log |x + sqrt(x^2+-a^2)|`
+</html>
