@@ -11,6 +11,11 @@
     overflow: auto;
     display: flex;
 }
+
+.question-body * {
+    font-size: 20px;
+}
+
 .theorem {
     font-style: italic;
 }
@@ -45,4 +50,4 @@ table{
 
 td {
     vertical-align: top;
-  }
+}
