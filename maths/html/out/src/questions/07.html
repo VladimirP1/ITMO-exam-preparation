@@ -1,0 +1,33 @@
+<!-- Формула Стокса.--><p class="md th">Пусть есть простая и гладкая поверхность `vec r (u,v) = Sigma`,
+заданная на области `Omega sub R^2` с границей `del Omega = {u(t),v(t)}, alpha &lt;=t&lt;=beta`.
+Обозначим границу `Sigma` так: `vec r(t) = del Sigma = vec r (u(t), v(t))`. <br>
+Тогда имеет место формула: <br>
+$\newcommand{\ovr}{\vec}\int_{\partial\Sigma} \ovr a d \ovr r = \iint_\Sigma \left(rot \ovr a, \ovr n_0\right) ds$</p><p class="md prf">План: свести и правую и левую часть к каким-то интегралам по области `Omega` и применить формулу Грина.
+<br><span style="color:green;">1)</span><br>
+`
+int_(del Sigma) vec a d vec r =
+int_alpha^beta vec a vec r'_t dt =
+int_alpha^beta vec a(vec r(u(t),v(t))) * (vec r'_u u'_t dt + vec r'_v v'_t dt) dt =
+int_(del Omega) vec a(vec r(u,v)) * (vec r'_u du + vec r'_v dv)
+`
+<br>
+Это криволиненыный интеграл второго рода.
+<br><span style="color:green;">2)</span><br>
+$
+\int_\Sigma rot \vec a \cdot \vec n_0 ds = \iint_\Omega rot \vec a \cdot \vec n_0 \left| \vec r_u \times \vec r_v \right| dudv =
+\iint_\Omega rot \vec a \cdot 
+    \left( \frac{\vec r_u \times \vec r_v}{\left|\vec r_u \times \vec r_v\right|} \right)
+    \left| \vec r_u \times \vec r_v \right| dudv=
+$
+$
+\iint_\Omega rot \vec a \cdot \left(\vec r_u \times \vec r_v\right) dudv
+$
+<br><span style="color:green;">3)</span><br>
+$
+rot \vec a \cdot (\vec r_u \times \vec r_v) = (rot \vec a, \vec r_u, \vec r_v)
+$
+<br>Делаем циклический сдвиг - это ж смешанное произведение.<br>
+$
+(\vec r_u, \vec r_v, rot \vec a) = (\vec r_u, \vec r_v, \nabla \times \vec a) = r_u \cdot r_v \times (\nabla \times \vec a)
+$
+<br> !!BIG TODO!!</p>

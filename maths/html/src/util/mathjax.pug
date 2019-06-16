@@ -1,1 +1,15 @@
+script(type="text/x-mathjax-config").
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            processEscapes: true
+        }
+    });
 script(src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_HTMLorMML")
+p(style="display:none;").
+    $\require{color}$
+    $\newcommand{\eps}{\varepsilon}$
+    $\newcommand{\unif}{\begin{smallmatrix}\rightarrow \\ \rightarrow  \end{smallmatrix}}$
+    $\newcommand{\inf}{\infty}$
+    $\newcommand{\minf}{{-\infty}}$
+    $\newcommand{\pinf}{{+\infty}}$

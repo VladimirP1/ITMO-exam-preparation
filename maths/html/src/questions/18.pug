@@ -1,0 +1,13 @@
+h4 Гамма-функция $\Gamma(x) = \int_0^{+\infty} t^{x-1} e^{-t} dt$
+p.md __Гамма-функция непрерывна__ при $x &gt; 0$
+p.md __Основное свойство гамма-функции__ $\Gamma(x+1) = x \Gamma(x)$
+p.md $\Gamma(x+1) = \int_0^{+\infty} t^x e^{-t} dt = -t^{x} e^{-t} |_0^{+\infty} + \int_0^{+\infty} x t^{x-1} e^{-t} dt = x \Gamma(x)$
+p.md `Gamma(x)=(Gamma(x+1))/x`
+p.md С помощью этого свойства можно продолжить функцию на отрицательнеую полуось и понять, что:
+p.md $\lim_{x\rightarrow 0+} \Gamma(x) = +\infty$
+p.md $\lim_{x\rightarrow +\infty} \Gamma(x) = +\infty$
+
+p.md __Производная гамма-функции__ $\Gamma'(x) = \int_0^{+\infty} t^{x-1}e^{-t}\ln(t)dt$
+p.md Ну доказываем там равномерную сходимость и тупо дифференцируем.
+p.md $\Gamma''(x)=\int_0^{+\infty} t^{x-1}e^{-t}\ln^2(t)dt &gt; 0 \implies \Gamma'(x) \text{ возрастает}$
+p.md !!TODO!! __бета-функция__

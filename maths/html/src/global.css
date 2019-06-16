@@ -1,12 +1,13 @@
 .question {
     font-family: times, serif;
     font-style: italic;
-    font-size: 1.2em;
+    font-size: 1.4em;
+    text-decoration: underline;
 }
 .question-body {
     font-family: serif;
     font-style: normal;
-    font-size: 1em;
+    font-size: 20px;
     overflow: auto;
     display: flex;
 }
