@@ -43,8 +43,8 @@ p.md Кроме того, если $f(t)$ абсолютно интегриру�
 h4 Теорема о равенстве интеграла фурье сумме соответствующего ряда Фурье.
 p.md !!ВНИМАНИЕ:!! Пока я разбирался, пришлось выкинуть одну замену переменных и переформулировать условие. !!TODO: исправить условие!!
 p.md !!Сейчас условие выглядит бессмысленно! !!
-p.md Пусть $f(t)$ абсолютно интегрируема на $R$, и $\forall l &gt; 0$ ряд Фурье по тригонометрической системе, ортогональной на промежутке $[-l; l]$ сходится в точке $0$ к числу $S$.
-p.md Тогда $\Phi (0) = S$.
+p.md Пусть $f(t)$ абсолютно интегрируема на $R$, и $\forall l &gt; 0$ ряд Фурье по тригонометрической системе, ортогональной на промежутке $[x_0-l; x_0+l]$ сходится в точке $x_0$ к числу $S$.
+p.md Тогда $\Phi (x_0) = S$.
 p.md __Доказательство__:
 
 p.md Для начала вспомним, что такое ряд Фурье:
@@ -57,39 +57,56 @@ p.md Где $\color{brown} D_n (t) = \frac{\sin{((n+\frac{1}{2})\frac{\pi t}{l})
 
 p.md Сделаем замену переменной $t = -t$ и воспользуемся тем, что ядро Дирихле &mdash; чётная функция:
 p.md $$S_n(x) = \frac{1}{l} \int_{-l}^{l} f(x+t) {\color{brown}D_n(t)} dt$$
-p.md Тогда $S = \lim_{n\to\infty} S_n(0) = \frac{1}{l} \int_{-l}^{l}  f(t) {\color{brown}D_n(t)} dt$
+p.md Тогда $S = \lim_{n\to\infty} S_n(x_0) = \frac{1}{l} \int_{-l}^{l}  f(x_0+t) {\color{brown}D_n(t)} dt$
+p.md Определим новую функцию $\tilde g(t) = f(x_0+t)$, тогда, $\tilde S_n$, посчитанное для этой ф-ции будет связано со старым так: $\tilde S_n(x) = S_n(x + x_0)$.
+p.md Тогда, $S_n(x_0) = \tilde S_n(0) = \frac{1}{l} \int_{-l}^{l} \tilde f(t) {\color{brown}D_n(t)} dt$
 
 p.md Пусть $$\color{red} \varphi (t) = \frac{1}{2l\sin{\frac{\pi t}{2l}}} - \frac{1}{\pi t}$$
 p.md Доопределим функцию в нуле, тогда при $t \to 0$ функция $\varphi \to 0$. Смотрим на #[a(href='https://sagecell.sagemath.org/?z=eJwrSyzSUC9R1-QqyMkv0TDUN9IvzszTKMjUKtE30tQ11C_I1C_RBADQcAq0&lang=sage&interacts=eJyLjgUAARUAuQ==') график] и видим, что это норм. 
     | Теперь вернемся к $ S$:
 
-p.md $$ S = \frac{1}{l} \int_{-l}^{l}  f(t) {\color{brown}D_n(t)} dt = \frac{1}{l} \int_{-l}^{l}  f(t) {\color{brown}\frac{\sin{((n+\frac{1}{2})\frac{\pi t}{l})}}{2\sin{\frac{\pi t}{2 l}}}} dt =$$
-p.md $$= \int_{-l}^l  f(t) \left(\left(\frac{\color{green} \sin{((n+\frac{1}{2})\frac{\pi t}{l})}}{\color{red} 2\sin{\frac{\pi t}{2 l}}} {\color{red} -} \frac{\color{green} \sin{((n+\frac{1}{2})\frac{\pi t}{l})}}{\color{red} \pi t}\right) + {\color{blue}\frac{\sin{((n+\frac{1}{2})\frac{\pi t}{l})}}{\pi t}}\right) dt=$$
-p.md $$=\int_{-l}^l  f(t) {\color{red} \varphi(t)} {\color{green} \sin{\left((n+\frac{1}{2})\frac{\pi t}{l}\right)}} dt + \int_{-l}^l  f(t) {\color{blue}\frac{\sin{\left((n+\frac{1}{2})\frac{\pi t}{l}\right)}}{\pi t}} dt $$
+p.md $$ S = \tilde S_n(0) = \frac{1}{l} \int_{-l}^{l}  \tilde f(t) {\color{brown}D_n(t)} dt =
+    | \frac{1}{l} \int_{-l}^{l}  \tilde f(t) {\color{brown}\frac{\sin{((n+\frac{1}{2})\frac{\pi t}{l})}}{2\sin{\frac{\pi t}{2 l}}}} dt =$$
+p.md $$= \int_{-l}^l  \tilde f(t) \left(\left(\frac{\color{green} \sin{((n+\frac{1}{2})\frac{\pi t}{l})}}{\color{red} 2\sin{\frac{\pi t}{2 l}}}
+    | {\color{red} -} \frac{\color{green} \sin{((n+\frac{1}{2})\frac{\pi t}{l})}}{\color{red} \pi t}\right) +
+    | {\color{blue}\frac{\sin{((n+\frac{1}{2})\frac{\pi t}{l})}}{\pi t}}\right) dt=$$
+p.md $$=\int_{-l}^l  \tilde f(t) {\color{red} \varphi(t)} {\color{green} \sin{\left((n+\frac{1}{2})\frac{\pi t}{l}\right)}} dt +
+    | \int_{-l}^l  \tilde f(t) {\color{blue}\frac{\sin{\left((n+\frac{1}{2})\frac{\pi t}{l}\right)}}{\pi t}} dt $$
 
 details
     summary Лемма Римана
     +question-body()
-        p Пусть функция $f(x)$ абсолютно интегрируема на конечном или бесконечном интервале $(a,b)$. Тогда:
-        p $$\lim _{\omega \rightarrow \infty} \int_{a}^{b} f(x) \sin \omega x d x=\lim _{\omega \rightarrow \infty} \int_{a}^{b} f(x) \cos \omega x d x=0$$
+        p Пусть функция $\tilde f(x)$ абсолютно интегрируема на конечном или бесконечном интервале $(a,b)$. Тогда:
+        p $$\lim _{\omega \rightarrow \infty} \int_{a}^{b} \tilde f(x) \sin \omega x d x=\lim _{\omega \rightarrow \infty} \int_{a}^{b} \tilde f(x) \cos \omega x d x=0$$
 
 p.md (Так как, по лемме Римана, первое слагаемое идет к нулю). Тогда
-p.md $$\lim_{n\to\infty}  S_n(0) = \lim_{n\to\infty} \int_{-l}^l  f(t) {\color{blue}\frac{\sin{\left((n+\frac{1}{2})\frac{\pi t}{l}\right)}}{\pi t}} dt = \lim_{\omega\to\infty} \frac{1}{\pi} \int_{-l}^l f(t) \frac{\sin{\omega t}}{t} dt$$
+p.md $$\lim_{n\to\infty}  \tilde S_n(0) =
+    | \lim_{n\to\infty} \int_{-l}^l  \tilde f(t) {\color{blue}\frac{\sin{\left((n+\frac{1}{2})\frac{\pi t}{l}\right)}}{\pi t}} dt =
+    | \lim_{\omega\to\infty} \frac{1}{\pi} \int_{-l}^l \tilde f(t) \frac{\sin{\omega t}}{t} dt$$
 
 p.md Поскольку, по лемме Римана, 
 p.md. 
     $$\begin{cases} 
-        \lim_{\omega\to\infty} \int_{-\infty}^{-l}  f(t) \frac{\sin{\omega t}}{t} dt = 0 \\
-        \lim_{\omega\to\infty} \int_{l}^{\infty}  f(t) \frac{\sin{\omega t}}{t} dt = 0
+        \lim_{\omega\to\infty} \int_{-\infty}^{-l}  \tilde f(t) \frac{\sin{\omega t}}{t} dt = 0 \\
+        \lim_{\omega\to\infty} \int_{l}^{\infty}  \tilde f(t) \frac{\sin{\omega t}}{t} dt = 0
      \end{cases}$$
-p.md То $\lim_{\omega\to\infty} \frac{1}{\pi} \int_{-l}^l  f(t) \frac{\sin{\omega t}}{t} dt = \lim_{\omega\to\infty} \frac{1}{\pi} \int_{-\infty}^{\infty}  f(t) \frac{\sin{\omega t}}{t} dt$.
+p.md То $\lim_{\omega\to\infty} \frac{1}{\pi} \int_{-l}^l  \tilde f(t) \frac{\sin{\omega t}}{t} dt = \lim_{\omega\to\infty} \frac{1}{\pi} \int_{-\infty}^{\infty}  \tilde f(t) \frac{\sin{\omega t}}{t} dt$.
 p.md Но $\frac{\sin{\omega t}}{t} = \int_0^{\omega} \cos{(yt)} dy$.
-p.md Тогда $\lim_{\omega\to\infty} \frac{1}{\pi} \int_{-\infty}^{\infty}  f(t) \frac{\sin{\omega t}}{t} dt = \lim_{\omega\to\infty} \frac{1}{\pi} \int_{-\infty}^{\infty}  f(t) dt \int_0^{\omega} \cos{(yt)} dy$.
+p.md Тогда $\lim_{\omega\to\infty} \frac{1}{\pi} \int_{-\infty}^{\infty}  \tilde f(t) \frac{\sin{\omega t}}{t} dt =
+    | \lim_{\omega\to\infty} \frac{1}{\pi} \int_{-\infty}^{\infty}  \tilde f(t) dt \int_0^{\omega} \cos{(yt)} dy$.
 p.md Как доказывалось ранее, в данном случае можно поменять местами пределы интегрирования:
-p.md $$\lim_{\omega\to\infty} \frac{1}{\pi} \int_{-\infty}^{\infty}  f(t) dt \int_0^{\omega} \cos{(yt)} dy = \lim_{\omega\to\infty} \frac{1}{\pi} \int_0^{\omega} \cos{(yt)} dy \int_{-\infty}^{\infty} g(t) dt = \frac{1}{2\pi} \int_{-\infty}^{\infty} dy \int_{-\infty}^{\infty} f(t) \cos{(yt)} dt = \Phi(0)$$
+p.md $$\tilde S_n(0) =
+    | \lim_{\omega\to\infty} \frac{1}{\pi} \int_{-\infty}^{\infty}  \tilde f(t) dt \int_0^{\omega} \cos{(yt)} dy =
+    | \lim_{\omega\to\infty} \frac{1}{\pi} \int_0^{\omega} \cos{(yt)} dy \int_{-\infty}^{\infty} \tilde f(t) dt = 
+    | \frac{1}{2\pi} \int_{-\infty}^{\infty} dy \int_{-\infty}^{\infty} \tilde f(t) \cos{(yt)} dt$$
+p.md Вернёмся к $S_n$ и $f$:
+p.md $$\tilde S_n(0) = S_n(x_0) =
+    | \frac{1}{2\pi} \int_{-\infty}^{\infty} dy \int_{-\infty}^{\infty} f(x_0 + t) \cos{(yt)} dt =
+    | \frac{1}{2\pi} \int_{-\infty}^{\infty} dy \int_{-\infty}^{\infty} f (u) \cos{(y(u-x_0))} dt =
+    | \Phi(x_0)$$
 p.md __Следствия__:
-p.md 1) Если $f(x)$ абсолютно интегрируема на $R$ и в точке $x_0$ удовлетворяет условию Гёльдера, то $$\Phi(x_0) = \frac{f(x_0+0) + f(x_0- 0)}{2}$$
+p.md 1) Если $\tilde f(x)$ абсолютно интегрируема на $R$ и в точке $x_0$ удовлетворяет условию Гёльдера, то $$\Phi(x_0) = \frac{\tilde f(x_0+0) + \tilde f(x_0- 0)}{2}$$
 p.md Условие Гёльдера:
 p.md Значения в соседних точках идут к нулю:
-p.md $$|f(x) - f(x_0)| \leq C |x-x_0|^{\alpha}, 0 &lt; \alpha \leq 1$$
-p.md 2) Если $f$ - абсолютно интегрируема и в точке $x_0$ имеет производную или односторонние производные (но при этом непрерывна), то $$\Phi(x_0) = f(x_0)$$
+p.md $$|\tilde f(x) - \tilde f(x_0)| \leq C |x-x_0|^{\alpha}, 0 &lt; \alpha \leq 1$$
+p.md 2) Если $f$ - абсолютно интегрируема и в точке $x_0$ имеет производную или односторонние производные (но при этом непрерывна), то $$\Phi(x_0) = \tilde f(x_0)$$
