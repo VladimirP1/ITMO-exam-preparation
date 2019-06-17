@@ -27,11 +27,43 @@ p.md.prf.
     \iint_\Omega rot \vec a \cdot \left(\vec r_u \times \vec r_v\right) dudv
     $
     <br>#[span(style="color:green;") 3)]<br>
-    $
-    rot \vec a \cdot (\vec r_u \times \vec r_v) = (rot \vec a, \vec r_u, \vec r_v)
-    $
+    $rot \vec a \cdot (\vec r_u \times \vec r_v) = (rot \vec a, \vec r_u, \vec r_v)$
     <br>Делаем циклический сдвиг - это ж смешанное произведение.<br>
+    $(\vec r_u, \vec r_v, rot \vec a) = (\vec r_u, \vec r_v, \nabla \times \vec a) = \vec r_u \cdot (\vec r_v \times (\nabla \times \vec a))$
+    <br>Применяем формулу #[a(href='https://vk.cc/9voKzd') BAC-CAB]. 
+    Тут чит: если применить ф-лу напрямую, получим наблу в конце произведения.
+    Чтобы такого не было, переставим множители во втором произведении (там вектор умножается на число, поэтому пофиг).<br>
+    $\vec r_u \cdot (\vec r_v \times (\nabla \times \vec a)) = 
+    \vec r_u \cdot (\nabla (\vec r_v \cdot \vec a) - (\vec r_v \cdot \nabla) \vec a ) = 
+    {\color{red}\vec r_u \cdot \nabla} {\color{green}(\vec r_v \cdot \vec a)} - \vec r_u \cdot ((\vec r_v \cdot \nabla) \vec a )$
+    <br>Первое слагаемое нас не устраивает. Но заметим, что ~green~число~green~ можно вынести из-под скалярного произведения.<br>
+    ${\color{red}\vec r_u \cdot \nabla} {\color{green}(\vec r_v \cdot \vec a)} - \vec r_u \cdot ((\vec r_v \cdot \nabla) \vec a )=
+    {\color{red}(\vec r_u \cdot \nabla)} {\color{green}(\vec r_v \cdot \vec a)} - \vec r_u \cdot ((\vec r_v \cdot \nabla) \vec a )$
+    <br>Внесём ~red~число~red~ внутрь ~green~скалярного произведения~green~<br>
+    ${\color{red}(\vec r_u \cdot \nabla)} {\color{green}(\vec r_v \cdot \vec a)} - \vec r_u \cdot ((\vec r_v \cdot \nabla) \vec a )=
+     {\color{green}(\vec r_v \cdot ({\color{red}(\vec r_u \cdot \nabla)} \vec a))} - \vec r_u \cdot ((\vec r_v \cdot \nabla) \vec a )$<br>
+    $\vec r_v \cdot (x_u \frac {\partial \vec a} {\partial x} + y_u \frac {\partial \vec a} {\partial y} + z_u \frac {\partial \vec a} {\partial z} ) - 
+    \vec r_u \cdot (x_v \frac {\partial \vec a} {\partial x} + y_v \frac {\partial \vec a} {\partial y} + z_v \frac {\partial \vec a} {\partial z} ) = 
+    \vec r_v \vec a_u - \vec r_u \vec a_v$<br>
+    Рассмотрим: <br>
+    $\begin{cases}
+        \frac {\partial } {\partial u} (\vec a \vec r_v) = \vec a_u \vec r_v + \vec a \vec r_{vu} \\
+        \frac {\partial } {\partial v} (\vec a \vec r_u) = \vec a_v \vec r_u + \vec a \vec r_{uv}
+    \end{cases}
+    $<br>
+    Вычтем: <br>
+    $\frac {\partial } {\partial u} (\vec a \vec r_v) - \frac {\partial } {\partial v} (\vec a \vec r_u) = 
+    \vec a_u \vec r_v - \vec a_v \vec r_u + \vec a \vec r_{vu} - \vec a \vec r_{uv} = \vec a_u \vec r_v - \vec a_v \vec r_u$<br>
+    Т. к. $r_{uv} = r_{vu}$<br>
+    Получили, что:<br>
+    $rot \vec a \cdot (\vec r_u \times \vec r_v) = \frac {\partial } {\partial u} (\vec a \vec r_v) - \frac {\partial } {\partial v} (\vec a \vec r_u)$
+    <br>#[span(style="color:green;") 4)]<br>
+    Подставим это в исходный интеграл:<br>
     $
-    (\vec r_u, \vec r_v, rot \vec a) = (\vec r_u, \vec r_v, \nabla \times \vec a) = r_u \cdot r_v \times (\nabla \times \vec a)
-    $
-    <br> !!BIG TODO!!
+    \iint_\Omega rot \vec a \cdot \left(\vec r_u \times \vec r_v\right) dudv = 
+    \iint_\Omega \frac {\partial } {\partial u} (\vec a \vec r_v) - \frac {\partial } {\partial v} (\vec a \vec r_u) dudv
+    $<br>
+    По формуле Грина:<br>
+    $\iint_\Omega \frac {\partial } {\partial u} (\vec a \vec r_v) - \frac {\partial } {\partial v} (\vec a \vec r_u) dudv=
+    \int_{\partial \Omega}\vec a \vec r_u du + \vec a \vec r_v dv$<br>
+    А это ровно то, что получили в пункте 1. ЧТД.
