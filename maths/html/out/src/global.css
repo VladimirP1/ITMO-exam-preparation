@@ -1,31 +1,6 @@
-.question {
-    font-family: times, serif;
-    font-style: italic;
-    font-size: 1.4em;
-    text-decoration: underline;
-}
-.question-body {
-    font-family: serif;
-    font-style: normal;
-    font-size: 20px;
-    overflow: auto;
-    display: flex;
-}
-
 * {
     font-size: 20px;
     max-height: 999999px;
-}
-
-.theorem {
-    font-style: italic;
-}
-.green-rect{
-    height:auto;
-    float:left;
-    width:0.15em;
-    margin-right:0.3em;
-    background-color:green;
 }
 
 p,li{
@@ -52,3 +27,34 @@ table{
 td {
     vertical-align: top;
 }
+
+.MathJax {
+    padding: 0.35em;
+}
+
+.green-rect{
+    height:auto;
+    float:left;
+    width:0.15em;
+    margin-right:0.3em;
+    background-color:green;
+}
+
+.question {
+    font-family: times, serif;
+    font-style: italic;
+    font-size: 1.4em;
+    text-decoration: underline;
+}
+.question-body {
+    font-family: serif;
+    font-style: normal;
+    font-size: 20px;
+    overflow: auto;
+    display: flex;
+}
+
+.theorem {
+    font-style: italic;
+}
+
