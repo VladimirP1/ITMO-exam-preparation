@@ -1,4 +1,3 @@
-
 var loaded = function() {
     let elements = document.getElementsByClassName("md");
 

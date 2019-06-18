@@ -1,0 +1,63 @@
+<!DOCTYPE html><meta charset="UTF-8"> <!--include util/blocks.pug--><html><head><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }
+});</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_HTMLorMML"></script><p style="display:none;">$\require{color}$
+$\newcommand{\eps}{\varepsilon}$
+$\newcommand{\unif}{\begin{smallmatrix}\rightarrow \\ \rightarrow  \end{smallmatrix}}$
+$\newcommand{\inf}{\infty}$
+$\newcommand{\minf}{{-\infty}}$
+$\newcommand{\pinf}{{+\infty}}$</p><link rel="stylesheet" href="global.css"><script>var loaded = function() {
+    let elements = document.getElementsByClassName("md");
+
+    let replacer = function(prefix, suffix) {
+        return function(str, text, offset, s) {
+            return prefix + text + suffix;
+        }
+    }
+
+    let styleReplacer = function(style) {
+        return replacer('<span style="' + style + '">','</span>');
+    }
+
+    let replacements = {
+        '__(.*?)__': styleReplacer("font-weight:bold;"),
+        '\\*\\*(.*?)\\*\\*': styleReplacer("font-style:italic;"),
+        '!!(.*?)!!': styleReplacer("color:darkred;font-weight:bold;"),
+        '~~~(.*?)~~~': styleReplacer("text-decoration:underline;"),
+        '~green~(.*?)~green~': styleReplacer("color:green;"),
+        '~red~(.*?)~red~': styleReplacer("color:red;")
+    };
+
+    let i, j;
+    for(i = 0; i < elements.length; i++) {
+        let element = elements[i];
+        for(j = 0; j < Object.keys(replacements).length; j++) {
+            let key = Object.keys(replacements)[j];
+            let repl = replacements[key];
+
+            element.innerHTML = 
+                element.innerHTML.
+                    replace(
+                        RegExp(key, 'g'), 
+                        repl
+                    );
+        }
+    }
+}
+
+document.addEventListener("DOMContentLoaded", loaded);</script><title>Основные формулировки и определения</title></head><body><p class="md">\(\overrightarrow r(t)\) __Кривая__ &mdash; отображение `R^1 -> R^2 text( либо ) R^3`</p><p class="md">\(\overrightarrow r(u,v)\) __Поверхность__ &mdash; отображение `\Omega \subset R^2 -> R^3`</p><p class="md">Пусть \(r = (x,y,z)\)
+Назовём поверхность __гладкой__, если <br>
+\(rank
+    \begin{pmatrix}
+        x_u && y_u && z_u \\
+        x_v && y_v && z_v
+    \end{pmatrix} = 2
+\) <br> и \(x, y, z\) имеют непрерывные производные</p><p class="md">Поверхность называют __простой__, если отображение \(r\) взаимно-однозначно.</p><p class="md">Последовательность областей $\Omega_n$ называют __исчерпывающей__, 
+если $\overline \Omega_n \subset \Omega_{n+1}$ и $\Omega = \cup \Omega_n$.</p><p class="md">Поверхность $\overrightarrow r (u,v)$ называется __почти простой__, 
+если существует последовательность $\Omega_n$ исчерпывающая для $\Omega$ и $\overrightarrow r$ 
+отображает каждую $\Omega_n$ в простую поверхность.</p><p class="md">__Система координат__ &mdash; некое взаимно-однозначное соответствие между точками пространства и векторами.
+__Криволинейная система координат__ &mdash; общий случай системы координат, не накладывающий никаких ограничений на это отображение.</p><p class="md">Возьмём поверхность и зафиксируем одну из переменных, получим кривую `vec r(u_0, v)`. Эти кривые называются координатными кривыми.
+Теперь возмём касательные к этим кривым и перемножим векторно. Получим нормаль к поверхности `vec n = vec r'_u times vec r'_v`.
+Нормаль простой поверхности не 0 нигде. Это следует из того, что ранг матрицы якобы простой поверхности равен 2.</p><p class="md">Пусть граница $\partial \Omega$ имеет параметризацию $(u(),v(t))$. Назовём __краем__ поверхности ($\partial \Sigma$) $r(u(t),v(t))$.</p><p class="md">Говорят, что две функции __задают одну поверхность__, если существуют соответствия $u=u(u',v'),\ v=v(u',v')$ с ненулевым якобианом и $\vec r(u,v) = \vec r(u(u',v'),v(u',v'))=\rho(u',v')$</p><p class="md">Вектором __нормали__ называют вектор $\vec n = \vec r_u \times \vec r_v$</p></body></html>
