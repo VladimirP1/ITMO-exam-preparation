@@ -12,12 +12,13 @@ var loaded = function() {
     }
 
     let replacements = {
+        '(TODO)': styleReplacer("color:red;background-color:lightblue;font-weight:bold;"),
         '__(.*?)__': styleReplacer("font-weight:bold;"),
         '\\*\\*(.*?)\\*\\*': styleReplacer("font-style:italic;"),
         '!!(.*?)!!': styleReplacer("color:darkred;font-weight:bold;"),
         '~~~(.*?)~~~': styleReplacer("text-decoration:underline;"),
         '~green~(.*?)~green~': styleReplacer("color:green;"),
-        '~red~(.*?)~red~': styleReplacer("color:red;")
+        '~red~(.*?)~red~': styleReplacer("color:red;"),
     };
 
     let i, j;
