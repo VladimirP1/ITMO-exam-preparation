@@ -2,6 +2,19 @@
 <html>
 head
     title Img-Conspect
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js")
+    script.
+        function click() {
+            if (this.src.includes('untouched')) {
+                this.src = this.src.replace('scans.untouched/', 'scans/');
+            } else {
+                this.src = this.src.replace('scans/', 'scans.untouched/');
+            }
+        }
+        $( document ).ready(function() {
+            $("img").each(function(){$(this).click(click);console.log(this);});
+        });
+        
 body
     -Number.prototype.pad = function(size) {
         -var s = String(this);
