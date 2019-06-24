@@ -359,6 +359,8 @@ body.md
             | Мы нашли общезначимое но не доказуемое утверждение. Всё, теория не полна.
         li Обозначим $Consis \equiv \forall p . (\neg Proof(\bra{1=0}, p))$.
         li **Теорема** (__вторая, о неполноте ФА__): Если арифметика непротиворечива, то в ней нет доказательства $Consis$.
+        li 
+            img(src=sources_rel + "../static/ГильбертБернайсЛеф.png")
         li Обозначим за $W_2(\bra\varphi,\bra p)$ рекурсивную функцию, которая возвращает истину тогда и только тогда, когда $p$ есть 
             | доказательство $\neg \varphi(\bra\varphi)$.
         li ${\color{red}\rho}(x) \equiv \forall p.(\omega_1(x,p)\to \exists q.(q&lt;p\&\omega_2(x,q)))$. То есть 
@@ -393,12 +395,21 @@ body.md
                     | Это **костыль** для устранения ~~~парадокса брадобрея~~~.
                 li __Схема аксиом подстановки__: Для любого множества $S$ и функции $f(x)$, представимой в И.П., 
                     | существует $f(S)$ &mdash; образ множества $S$
-                li __Аксиома выбора__: TODO
+                li __Аксиома выбора__: Пусть есть дизъюнктное множество $D$. Тогда найдётся множество $t$, такое, что оно 
+                    | имеет общий элемент с каждым элементом $D$. 
+                    | `text(Ex:) quad D={{a ...},{b ...},{c ...}}; t = {a,b,c ...}`
         li $a &lt; b \stackrel{\scriptsize\text{def}}{\equiv} a \in b$.
         li Множество $x$ __транзитивно__, если $z\in y \& y\in x \to z\in x$.
         li Вполне упорядоченное транзитивное множество называют __ординалом__.
         li $x$ &mdash; __предельный ординал__, если нет $t$ такого, что $t'=x$.
         li Ординал __конечный__, если в нём нет предельных ординалов, отличных от $\varnothing$, также $\varnothing$ конечен.
+        li Определи операцию "__+__" так:<br>
+            | $ a + b = \begin{cases}
+            |   a, \color{darkgreen}\quad b=0 \\
+            |   (a + c)', \color{darkgreen}\quad c' = b \\
+            |   \sup \{ a+c | c &lt; b \}, \color{darkgreen}\quad b \text{ &mdash;  предельный ординал}
+            | \end{cases} $
+        li ${\color{darkblue} \underline {1 + \omega} = \omega} \not = {\color{brown}\omega \cup \{\omega\} = \underline {\omega + 1}} $
         li __Первый бесконечный ординал__ $\omega=\{\varnothing, \varnothing', \varnothing'', \varnothing''', \ldots\}$. (минимальный бесконечный ординал).
         
     p 
